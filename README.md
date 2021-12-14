@@ -1,66 +1,113 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# LMS
+Library Management System
+## Requirements
+System Task: Library management system
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+   1) The application will have two types of users such as Admin and end-users
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+   2) Admin can 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+      - Create and manage books
 
-## Learning Laravel
+      - Bulk upload of books with basic error handling
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+      - View user books subscription details
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+      - Dashboard: Books count, Subscription count
 
-## Laravel Sponsors
+   3) User can 
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+      - Register/Login
 
-### Premium Partners
+      - View all available books
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-- **[Romega Software](https://romegasoftware.com)**
+      - Subscribe to any books 
 
-## Contributing
+  4) Requirements:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+      - Framework: Laravel
 
-## Code of Conduct
+      - DB query pattern: Eloquent (ORM)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+      - At least one middleware
 
-## Security Vulnerabilities
+      - Use package for bulk uploading
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+      - Implement laravel default Auth
 
-## License
+      - Migrations
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+      - Unit test cases for few APIs
+
+
+## Set Up
+#### Create your environment file:
+
+```bash
+cp .env.example .env
+```
+#### Update these settings in the .env file:
+
+-   DB_DATABASE (your local database, i.e. "lms")
+-   DB_USERNAME (your local db username, i.e. "root")
+-   DB_PASSWORD (your local db password, i.e. "")
+
+#### Generate an app key:
+
+```bash
+php artisan key:generate
+```
+
+#### Run the database migrations:
+
+```bash
+php artisan migrate
+```
+
+#### Install Javascript dependencies:
+
+```bash
+npm install
+```
+
+#### Run an initial build:
+
+```bash
+npm run development
+```
+
+#### Database Seeding
+
+If you need sample data to work with, you can seed the database:
+
+```
+php artisan migrate:refresh --seed --force
+
+#### Seeded User
+
+After seeding the database, you can log in with these credentials:
+## ADMIN
+Email: `admin@gmail.com`
+Password: `LMSadmin@123`
+
+## User
+Email: `usera@gmail.com`
+Password: `userA@123`
+
+## Unit Test Cases
+Verify the Admin/User is able to Register to the application with valid details
+Verify the Admin/User is able to Login to the system with valid crendentials
+Verify the Admin/User is able to view the dashboard in home page
+Verify the Admin is able to create the books in the system
+Verify the Admin is able to view the created books in the listing page
+Verify the Admin is able to edit the created books in the system
+Verify the Admin is able to delete the created books in the system
+Verify the Admin is able to delete the created books, only if there is no subscription for that book
+Verify the Admin is able to search the books in the listing page
+Verify the Admin is able to view the list of subscribers in subscribers menu
+Verify the User is able to view the list of books in the system
+Verify the User is able to subscribe the book in the system
+Verify the User is able to unsubscribe the subscribed book in the system
+Verify the User is unable to subscribe the book which count was 0 in the system
