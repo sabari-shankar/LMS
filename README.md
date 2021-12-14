@@ -1,5 +1,47 @@
 # LMS
 Library Management System
+## Requirements
+System Task: Library management system
+
+
+
+   1) The application will have two types of users such as Admin and end-users
+
+   2) Admin can 
+
+      - Create and manage books
+
+      - Bulk upload of books with basic error handling
+
+      - View user books subscription details
+
+      - Dashboard: Books count, Subscription count
+
+   3) User can 
+
+      - Register/Login
+
+      - View all available books
+
+      - Subscribe to any books 
+
+  4) Requirements:
+
+      - Framework: Laravel
+
+      - DB query pattern: Eloquent (ORM)
+
+      - At least one middleware
+
+      - Use package for bulk uploading
+
+      - Implement laravel default Auth
+
+      - Migrations
+
+      - Unit test cases for few APIs
+
+
 ## Set Up
 #### Create your environment file:
 
